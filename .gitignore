@@ -1,0 +1,83 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Build output
+dist/
+build/
+coverage/
+*.tsbuildinfo
+frontend/dist/
+backend/dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+*.pid
+*.pid.lock
+*.seed
+
+# Cache and temp files
+.cache/
+.parcel-cache/
+.eslintcache
+.sass-cache/
+tmp/
+temp/
+
+# Test artifacts
+.nyc_output/
+playwright-report/
+test-results/
+
+# Vite / frontend tooling
+vite.svg
+*.tgz
+
+# Docker and local volumes
+postgres_data/
+mongo_data/
+redis_data/
+*.sqlite
+*.sqlite3
+
+# IDE and editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+*.user
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Optional local docs/export artifacts
+*.tmp
+*.bak

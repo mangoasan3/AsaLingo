@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    @apply bg-surface-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100;
+    min-height: 100dvh;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* Safe area for mobile devices */
+  #root {
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
+    overflow-x: clip;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-600 text-white font-semibold py-3.5 px-6 rounded-2xl
+           hover:bg-brand-700 active:scale-[0.97] transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed
+           shadow-sm hover:shadow-md
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply rounded-2xl border border-brand-200 bg-white px-6 py-3.5 font-semibold text-brand-600
+           transition-all duration-150 hover:bg-brand-50 active:scale-[0.97]
+           dark:border-brand-800 dark:bg-slate-900 dark:text-brand-200 dark:hover:bg-slate-800
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply rounded-xl px-4 py-2.5 font-medium text-slate-600
+           transition-all duration-150 hover:bg-slate-100 active:scale-[0.97]
+           dark:text-slate-300 dark:hover:bg-slate-800;
+  }
+
+  .card {
+    @apply rounded-3xl bg-white p-5 shadow-card ring-1 ring-slate-100/60
+           dark:bg-slate-900 dark:ring-slate-800/80;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-soft hover:-translate-y-0.5 transition-all duration-200;
+  }
+
+  .input {
+    @apply w-full rounded-2xl border border-transparent bg-surface-100 px-4 py-3.5
+           text-base text-slate-800 placeholder-slate-400
+           transition-all duration-150
+           focus:bg-white focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-400/20
+           dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:bg-slate-900
+           dark:focus:border-brand-400 dark:focus:ring-brand-400/20
+           transition-all duration-150;
+  }
+
+  .level-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .nav-item {
+    @apply flex flex-1 flex-col items-center justify-center gap-0.5 py-2
+           text-slate-400 transition-colors duration-150 dark:text-slate-500;
+  }
+
+  .nav-item.active {
+    @apply text-brand-600;
+  }
+
+  /* Section header pattern */
+  .section-header {
+    @apply flex items-center justify-between mb-4;
+  }
+
+  .section-title {
+    @apply text-lg font-bold text-slate-800 dark:text-slate-100;
+  }
+}
+
+@layer utilities {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dark .app-shell {
+    background:
+      linear-gradient(180deg, rgba(15, 23, 42, 0.9) 0%, rgba(2, 6, 23, 1) 44%),
+      #020617;
+  }
+
+  .dark .app-shell .bg-white {
+    background-color: #0f172a;
+  }
+
+  .dark .app-shell .bg-surface-50,
+  .dark .app-shell .bg-surface-100,
+  .dark .app-shell .bg-slate-50 {
+    background-color: #111827;
+  }
+
+  .dark .app-shell .bg-slate-100,
+  .dark .app-shell .bg-slate-200 {
+    background-color: #1e293b;
+  }
+
+  .dark .app-shell .bg-brand-50,
+  .dark .app-shell .bg-brand-100 {
+    background-color: rgba(79, 81, 232, 0.18);
+  }
+
+  .dark .app-shell .bg-green-50,
+  .dark .app-shell .bg-green-100,
+  .dark .app-shell .bg-emerald-50,
+  .dark .app-shell .bg-emerald-100 {
+    background-color: rgba(16, 185, 129, 0.14);
+  }
+
+  .dark .app-shell .bg-amber-50,
+  .dark .app-shell .bg-amber-100,
+  .dark .app-shell .bg-orange-50,
+  .dark .app-shell .bg-orange-100 {
+    background-color: rgba(245, 158, 11, 0.16);
+  }
+
+  .dark .app-shell .bg-red-50,
+  .dark .app-shell .bg-red-100 {
+    background-color: rgba(239, 68, 68, 0.15);
+  }
+
+  .dark .app-shell .bg-blue-100,
+  .dark .app-shell .bg-indigo-100,
+  .dark .app-shell .bg-purple-100,
+  .dark .app-shell .bg-rose-100 {
+    background-color: rgba(99, 102, 241, 0.16);
+  }
+
+  .dark .app-shell .border-white\/15 {
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .dark .app-shell .border-surface-100,
+  .dark .app-shell .border-surface-200,
+  .dark .app-shell .border-slate-100,
+  .dark .app-shell .border-slate-200 {
+    border-color: #1e293b;
+  }
+
+  .dark .app-shell .border-brand-200,
+  .dark .app-shell .border-brand-300 {
+    border-color: rgba(129, 150, 251, 0.45);
+  }
+
+  .dark .app-shell .ring-slate-100,
+  .dark .app-shell .ring-slate-100\/60,
+  .dark .app-shell .ring-slate-200 {
+    --tw-ring-color: rgba(51, 65, 85, 0.8);
+  }
+
+  .dark .app-shell .shadow-card,
+  .dark .app-shell .shadow-soft,
+  .dark .app-shell .shadow-sm {
+    box-shadow: 0 20px 45px -34px rgba(0, 0, 0, 0.9);
+  }
+
+  .dark .app-shell .text-slate-900,
+  .dark .app-shell .text-slate-800,
+  .dark .app-shell .text-slate-700 {
+    color: #e2e8f0;
+  }
+
+  .dark .app-shell .text-slate-600,
+  .dark .app-shell .text-slate-500 {
+    color: #94a3b8;
+  }
+
+  .dark .app-shell .text-slate-400,
+  .dark .app-shell .text-slate-300 {
+    color: #64748b;
+  }
+
+  .dark .app-shell .text-brand-700,
+  .dark .app-shell .text-brand-600,
+  .dark .app-shell .text-brand-500 {
+    color: #a5bafd;
+  }
+
+  .dark .app-shell .text-green-700,
+  .dark .app-shell .text-green-600,
+  .dark .app-shell .text-emerald-700 {
+    color: #86efac;
+  }
+
+  .dark .app-shell .text-amber-700,
+  .dark .app-shell .text-orange-600,
+  .dark .app-shell .text-orange-500 {
+    color: #fbbf24;
+  }
+
+  .dark .app-shell .text-red-600,
+  .dark .app-shell .text-red-500,
+  .dark .app-shell .text-red-400 {
+    color: #fca5a5;
+  }
+
+  .dark .app-shell .hover\:bg-slate-50:hover,
+  .dark .app-shell .hover\:bg-slate-100:hover,
+  .dark .app-shell .active\:bg-slate-50:active,
+  .dark .app-shell .active\:bg-surface-50:active {
+    background-color: #1e293b;
+  }
+
+  .dark .app-shell .hover\:bg-brand-50:hover,
+  .dark .app-shell .active\:bg-brand-50:active {
+    background-color: rgba(79, 81, 232, 0.22);
+  }
+
+  .dark .app-shell input,
+  .dark .app-shell textarea,
+  .dark .app-shell select {
+    caret-color: #a5bafd;
+  }
+
+  /* Subtle fade-in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.35s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
